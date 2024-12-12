@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HoverAndGrab : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class HoverAndGrab : MonoBehaviour
     public Material originalMaterial; // Idle material
     public Material hoverMaterial;    // Hover material
     public Material grabMaterial;     // Grab material
+
+    [Header("UI Indicator")]
+    public GameObject grabIndicator; // Assign the UI element in the Inspector
 
     private Renderer objectRenderer;
     private bool isGrabbed = false;
@@ -16,6 +20,11 @@ public class HoverAndGrab : MonoBehaviour
         if (originalMaterial != null)
         {
             objectRenderer.material = originalMaterial;
+        }
+
+        if (grabIndicator != null)
+        {
+            grabIndicator.SetActive(false); // Ensure the indicator starts hidden
         }
     }
 
@@ -45,6 +54,12 @@ public class HoverAndGrab : MonoBehaviour
             {
                 objectRenderer.material = grabMaterial;
                 isGrabbed = true;
+
+                // Show the grab indicator
+                if (grabIndicator != null)
+                {
+                    grabIndicator.SetActive(true);
+                }
             }
         }
     }
@@ -59,6 +74,12 @@ public class HoverAndGrab : MonoBehaviour
             {
                 objectRenderer.material = originalMaterial;
                 isGrabbed = false;
+
+                // Hide the grab indicator
+                if (grabIndicator != null)
+                {
+                    grabIndicator.SetActive(false);
+                }
             }
         }
     }
