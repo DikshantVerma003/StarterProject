@@ -3,24 +3,19 @@ using UnityEngine;
 public class HoverAndGrab : MonoBehaviour
 {
     [Header("Materials")]
-    public Material originalMaterial;
-    public Material hoverMaterial;
-    public Material grabMaterial;
+    public Material originalMaterial; // Idle material
+    public Material hoverMaterial;    // Hover material
+    public Material grabMaterial;     // Grab material
 
     private Renderer objectRenderer;
-    private bool isHovered = false;
     private bool isGrabbed = false;
 
     void Start()
     {
         objectRenderer = GetComponent<Renderer>();
-        if (objectRenderer != null && originalMaterial != null)
+        if (originalMaterial != null)
         {
             objectRenderer.material = originalMaterial;
-        }
-        else
-        {
-            Debug.LogWarning("Please assign the Original Material and ensure the Renderer exists.");
         }
     }
 
@@ -29,7 +24,6 @@ public class HoverAndGrab : MonoBehaviour
         if (!isGrabbed && hoverMaterial != null)
         {
             objectRenderer.material = hoverMaterial;
-            isHovered = true;
         }
     }
 
@@ -38,29 +32,34 @@ public class HoverAndGrab : MonoBehaviour
         if (!isGrabbed && originalMaterial != null)
         {
             objectRenderer.material = originalMaterial;
-            isHovered = false;
         }
     }
 
-    public void OnGrab()
+    void OnTriggerEnter(Collider other)
     {
-        if (grabMaterial != null)
+        // Detect if the collider belongs to a controller
+        if (other.CompareTag("Controller"))
         {
-            objectRenderer.material = grabMaterial;
-            isGrabbed = true;
+            Debug.Log("Object grabbed via collision!");
+            if (grabMaterial != null)
+            {
+                objectRenderer.material = grabMaterial;
+                isGrabbed = true;
+            }
         }
     }
 
-    public void OnRelease()
+    void OnTriggerExit(Collider other)
     {
-        if (isHovered && hoverMaterial != null)
+        // Detect if the collider belongs to a controller
+        if (other.CompareTag("Controller"))
         {
-            objectRenderer.material = hoverMaterial;
+            Debug.Log("Object released via collision!");
+            if (originalMaterial != null)
+            {
+                objectRenderer.material = originalMaterial;
+                isGrabbed = false;
+            }
         }
-        else if (originalMaterial != null)
-        {
-            objectRenderer.material = originalMaterial;
-        }
-        isGrabbed = false;
     }
 }

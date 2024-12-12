@@ -2,13 +2,17 @@ using UnityEngine;
 
 public class ControllerInteraction : MonoBehaviour
 {
-    public Transform rayOrigin; // Assign the controller's position
-    public float rayDistance = 10f;
+    public Transform rayOrigin;       // Reference to the controller's tip
+    public float rayDistance = 10f;   // Ray distance
 
     private HoverAndGrab currentObject;
 
     void Update()
     {
+        // Visualize the ray in the Scene View for debugging
+        Debug.DrawRay(rayOrigin.position, rayOrigin.forward * rayDistance, Color.green);
+
+        // Shoot the ray
         Ray ray = new Ray(rayOrigin.position, rayOrigin.forward);
         RaycastHit hit;
 
@@ -18,6 +22,7 @@ public class ControllerInteraction : MonoBehaviour
 
             if (hoverScript != null)
             {
+                // Handle hover enter
                 if (currentObject != hoverScript)
                 {
                     if (currentObject != null)
@@ -27,16 +32,6 @@ public class ControllerInteraction : MonoBehaviour
 
                     currentObject = hoverScript;
                     currentObject.OnHoverEnter();
-                }
-
-                // Implement grab logic (e.g., based on controller input)
-                if (Input.GetButtonDown("Grab"))
-                {
-                    currentObject.OnGrab();
-                }
-                else if (Input.GetButtonUp("Grab"))
-                {
-                    currentObject.OnRelease();
                 }
             }
         }
