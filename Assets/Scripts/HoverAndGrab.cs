@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HoverAndGrab : MonoBehaviour
 {
@@ -9,7 +8,7 @@ public class HoverAndGrab : MonoBehaviour
     public Material grabMaterial;     // Grab material
 
     [Header("UI Indicator")]
-    public GameObject grabIndicator;
+    public GameObject grabIndicator; // Assign the UI element in the Inspector
 
     private Renderer objectRenderer;
     private bool isGrabbed = false;
