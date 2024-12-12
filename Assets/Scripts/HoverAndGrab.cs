@@ -9,7 +9,7 @@ public class HoverAndGrab : MonoBehaviour
     public Material grabMaterial;     // Grab material
 
     [Header("UI Indicator")]
-    public GameObject grabIndicator; // Assign the UI element in the Inspector
+    public GameObject grabIndicator;
 
     private Renderer objectRenderer;
     private bool isGrabbed = false;
