@@ -44,15 +44,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FogCubemap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 8900000, guid: 258f30bee5bffc44d94c1880a0de82dc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Lighting:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d379d3d3d3e988842a3f359d1a084594, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightingRamp:
-        m_Texture: {fileID: 2800000, guid: 29fc1fbc683808d47a68f0ccfd2aebdc, type: 3}
+        m_Texture: {fileID: 2800000, guid: ba2123cb97ae46e4081df255324fe10e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
