@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 4370836328626170415}
   - component: {fileID: 4792856225612274321}
   - component: {fileID: 7203976311738029443}
+  - component: {fileID: 2975047103260039008}
   m_Layer: 0
   m_Name: Mummy_Monster_Prefab
   m_TagString: Monster
@@ -339,7 +340,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731292545918051633}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3353e4f866c39d043a315b41717c9bb7, type: 3}
   m_Controller: {fileID: 9100000, guid: ad8c5523f2b576b418ee719654ad4604, type: 2}
   m_CullingMode: 1
@@ -359,8 +360,8 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731292545918051633}
-  m_Enabled: 0
-  m_AgentTypeID: -334000983
+  m_Enabled: 1
+  m_AgentTypeID: -1372625422
   m_Radius: 0.4
   m_Speed: 0.5
   m_Acceleration: 1
@@ -393,8 +394,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8325514, y: 1.1116424, z: 0.7395033}
-  m_Center: {x: 0.000008940697, y: 0.55820954, z: 0.027910557}
+  m_Size: {x: 0.9526113, y: 1.1116424, z: 0.940329}
+  m_Center: {x: 0.020069566, y: 0.55820954, z: 0.054036293}
 --- !u!54 &6786483919948711713
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -417,7 +418,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -441,6 +442,9 @@ MonoBehaviour:
   _twoGrabTransformer: {fileID: 0}
   _targetTransform: {fileID: 0}
   _maxGrabPoints: -1
+  _rigidbody: {fileID: 0}
+  _kinematicWhileSelected: 1
+  _throwWhenUnselected: 1
 --- !u!114 &206710201236108832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,14 +581,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monstrAnimator: {fileID: 8123998973048200846}
-  navMeshAgent: {fileID: 981432496002129943}
   monstorRigidbody: {fileID: 6786483919948711713}
-  minDistanceToEdge: 0.01
-  rayOffSet: {x: 0, y: 0.1, z: 0}
   onDeadParticleEffect: {fileID: 3142014355293295643, guid: c9d57aa39b2acaf438ec1b85c4cfa445, type: 3}
+  actionFigure: {fileID: 0}
   isGrabbed: 0
-  VisualizeTargetPosition: 0
-  positionIndicator: {fileID: 8847966430223410231}
 --- !u!65 &7203976311738029443
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -600,12 +600,28 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.78435457, y: 0.3785435, z: 0.66464585}
   m_Center: {x: 0.00037048545, y: 1.1072439, z: 0.027227178}
+--- !u!114 &2975047103260039008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731292545918051633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8870b83e7a0ad86468f663e36d7e308a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  attackRange: 1.4
+  attackRate: 1
+  damage: 30
 --- !u!1 &2150493197503717028
 GameObject:
   m_ObjectHideFlags: 0
