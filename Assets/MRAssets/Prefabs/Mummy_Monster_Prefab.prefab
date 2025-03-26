@@ -394,8 +394,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9526113, y: 1.1116424, z: 0.940329}
-  m_Center: {x: 0.020069566, y: 0.55820954, z: 0.054036293}
+  m_Size: {x: 0.84192127, y: 1.0360532, z: 0.8530237}
+  m_Center: {x: -0.0018723522, y: 0.52041495, z: 0.0072551626}
 --- !u!54 &6786483919948711713
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -600,12 +600,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.78435457, y: 0.3785435, z: 0.66464585}
-  m_Center: {x: 0.00037048545, y: 1.1072439, z: 0.027227178}
+  m_Size: {x: 0.91567266, y: 0.29265395, z: 0.90067047}
+  m_Center: {x: -0.011095575, y: 1.1133778, z: -0.029938733}
 --- !u!114 &2975047103260039008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8870b83e7a0ad86468f663e36d7e308a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 3058199204443039518, guid: b0cf75c9f435afb499b1a88bb8c7aa23, type: 3}
+  target: {fileID: 0}
   attackRange: 1.4
   attackRate: 1
   damage: 30

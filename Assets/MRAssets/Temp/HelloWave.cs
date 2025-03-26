@@ -56,4 +56,15 @@ public class HelloWave : MonoBehaviour
             animator.Play(idleAnimation);
         }
     }
+
+    void OnDrawGizmosSelected()
+    {
+        // Set the Gizmo color
+        Gizmos.color = Color.red;
+
+        // Draw a wire sphere around the enemy to represent the attack range
+        Gizmos.DrawWireSphere(transform.position, triggerRange);
+    }
+
+
 }
